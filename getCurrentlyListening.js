@@ -42,7 +42,11 @@ const getCurrentlyListening = async () => {
     });
 
     if (resp.status !== 200) {
-        throw new Error('unable to retrieve currently listening from spotify');
+        return { 
+            data: {
+                is_playing: false,
+            }
+        };
     } else {
         return resp.json();
     }
