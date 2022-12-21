@@ -1,0 +1,25 @@
+{
+  "name": "spotify-currently-listening",
+  "version": "1.0.0",
+  "description": "Gets what I'm currently listening to on Spotify",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noaoh/spotify-currently-listening.git"
+  },
+  "author": "Noah Holt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noaoh/spotify-currently-listening/issues"
+  },
+  "homepage": "https://github.com/noaoh/spotify-currently-listening#readme",
+  "dependencies": {
+    "@koa/router": "^12.0.0",
+    "koa": "^2.14.1",
+    "node-fetch": "^2.6.7",
+    "serverless-http": "^3.1.0"
+  }
+}

@@ -1,0 +1,20 @@
+org: noaoh
+app: spotify-currently-listening
+service: spotify-currently-listening
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  environment:
+    SPOTIFY_CLIENT_ID: ${param:spotify-client-id}
+    SPOTIFY_CLIENT_SECRET: ${param:spotify-client-secret}
+    SPOTIFY_REFRESH_TOKEN: ${param:spotify-refresh-token}
+
+functions:
+  currentlyListening:
+    handler: handler.currentlyListening
+    events:
+      - httpApi:
+          path: /
+          method: get
