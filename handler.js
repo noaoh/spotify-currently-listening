@@ -7,11 +7,20 @@ const parseCurrentlyListening = require('./parseCurrentlyListening');
 const app = new Koa();
 const router = new Router();
 
+const {
+  LOCAL_URL: localUrl,
+  GITHUB_URL: githubUrl,
+} = process.env;
+
 router.get('/', async (ctx) => {
   try {
     const currentlyListening = await getCurrentlyListening();
     const parsedCurrentlyListening = parseCurrentlyListening(currentlyListening);
     ctx.body = parsedCurrentlyListening;
+    const origin = ctx.req.headers.origin
+    if (origin === localUrl || origin === githubUrl) {
+      ctx.res.setHeader('Access-Control-Allow-Origin', origin);
+    }
     ctx.status = 200;
   } catch (err) {
     console.log(err);

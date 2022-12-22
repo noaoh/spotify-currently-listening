@@ -1,19 +1,19 @@
 const fetch = require('node-fetch');
 
 const {
-    SPOTIFY_CLIENT_ID: client_id,
-    SPOTIFY_CLIENT_SECRET: client_secret,
-    SPOTIFY_REFRESH_TOKEN: refresh_token,
+    SPOTIFY_CLIENT_ID: clientId,
+    SPOTIFY_CLIENT_SECRET: clientSecret,
+    SPOTIFY_REFRESH_TOKEN: refreshToken,
 } = process.env;
 
 const NOW_PLAYING_ENDPOINT = 'https://api.spotify.com/v1/me/player/currently-playing?additional_types=track%2Cepisode';
 const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 
 const getAccessToken = async () => {
-    const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
+    const basic = Buffer.from(`${clientId}:${clientSecret}`).toString('base64');
     const reqBody = new URLSearchParams({
         grant_type: 'refresh_token',
-        refresh_token,
+        refresh_token: refreshToken,
     });
 
     const response = await fetch(TOKEN_ENDPOINT, {

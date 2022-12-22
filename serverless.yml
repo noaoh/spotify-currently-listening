@@ -10,6 +10,8 @@ provider:
     SPOTIFY_CLIENT_ID: ${param:spotify-client-id}
     SPOTIFY_CLIENT_SECRET: ${param:spotify-client-secret}
     SPOTIFY_REFRESH_TOKEN: ${param:spotify-refresh-token}
+    LOCAL_URL: ${param:local-url}
+    GITHUB_URL: ${param:github-url}
 
 functions:
   currentlyListening:
