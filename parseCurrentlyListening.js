@@ -15,6 +15,7 @@ const parseCurrentlyListening = (data) => {
             artists,
             album,
             track,
+            type,
         }
     } else if (type === 'episode') {
         const podcast = data.item.show.name;
@@ -23,6 +24,7 @@ const parseCurrentlyListening = (data) => {
             isPlaying: true,
             podcast,
             episode,
+            type,
         }
     } else {
         throw new Error('Unknown currently playing type');
