@@ -4,7 +4,9 @@
   "description": "Gets what I'm currently listening to on Spotify",
   "main": "handler.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "serverless invoke local --function currentlyListening",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "serverless deploy"
   },
   "repository": {
     "type": "git",
